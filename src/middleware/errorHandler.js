@@ -1,7 +1,7 @@
 import { HttpError } from 'http-errors';
 
 // Глобальний обробник помилок
-const errorHandler = (err, req, res, next) => {
+export const errorHandler = (err, req, res, next) => {
   console.error(err);
   if (err instanceof HttpError) {
     return res.status(err.status).json({
@@ -17,5 +17,3 @@ const errorHandler = (err, req, res, next) => {
         : err.message,
     });
 };
-
-export default errorHandler;
