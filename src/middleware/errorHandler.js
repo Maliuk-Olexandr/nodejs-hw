@@ -1,7 +1,6 @@
 // import { isCelebrateError } from 'celebrate';
 import { HttpError } from 'http-errors';
 
-// Глобальний обробник помилок
 export const errorHandler = (err, req, res, next) => {
   console.error(err);
 
