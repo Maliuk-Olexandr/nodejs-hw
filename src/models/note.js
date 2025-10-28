@@ -11,11 +11,13 @@ const noteSchema = new Schema(
       enum: TAGS,
       default: 'Todo',
     },
+    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   },
   { timestamps: true },
 );
 
 noteSchema.index({ title: 'text', content: 'text' });
+noteSchema.index({ userId: 1, tag: 1 });
 
 const Note = model("Note", noteSchema);
 
