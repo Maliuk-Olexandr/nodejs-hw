@@ -8,7 +8,7 @@ if (!req.file) {
 }
   const result = await saveFileToCloudinary(req.file.buffer);
   const user = await User.findOneAndUpdate(
-    req.user._id,
+    { _id: req.user._id },
     { avatar: result.secure_url },
     { new: true },
   );
